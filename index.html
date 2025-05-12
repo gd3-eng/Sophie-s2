@@ -4,12 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>To Sophia Dantas, With Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Georgia', serif;
       background: linear-gradient(#ffe6eb, #fff);
       color: #4b2c2c;
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     header {
       background-color: #ffb6c1;
@@ -25,6 +31,26 @@
       font-size: 1.2em;
       margin-top: 0.5em;
       font-style: italic;
+    }
+    section.love-letter {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4em;
+      line-height: 1.8;
+      padding: 2em;
+      max-width: 800px;
+      margin: 3em auto;
+      background-color: #fff0f5;
+      border-top: 2px solid #ffb6c1;
+      border-bottom: 2px solid #ffb6c1;
+      border-radius: 10px;
+    }
+    section.love-letter h2 {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1em;
+    }
+    section.love-letter p {
+      text-align: justify;
     }
     section.gallery {
       padding: 2em;
@@ -45,32 +71,15 @@
     .gallery-grid img:hover {
       transform: scale(1.05);
     }
-    section.love-letter {
-      padding: 2em;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #fff0f5;
-      border-top: 2px solid #ffb6c1;
-      border-bottom: 2px solid #ffb6c1;
-      margin-top: 3em;
-      margin-bottom: 3em;
-      border-radius: 10px;
-    }
-    section.love-letter h2 {
-      text-align: center;
-      font-style: italic;
-      margin-bottom: 1em;
-    }
-    section.love-letter p {
-      line-height: 1.8;
-      font-size: 1.1em;
-      text-align: justify;
-    }
     footer {
       text-align: center;
       padding: 2em;
       font-size: 0.9em;
       color: #6e4d4d;
+    }
+    audio {
+      display: block;
+      margin: 2em auto;
     }
   </style>
 </head>
@@ -80,31 +89,36 @@
     <p>With all my love, today and always.</p>
   </header>
 
-<section class="love-letter">
-  <h2>A Letter from My Heart</h2>
-  <p>
-    <strong>Sophia,</strong><br><br>
-    You are the most precious treasure in my life. Thank you for always being there—for me and for our girls.  
-    We love you deeply, and I hope that as you look through these photos, they bring back the joy of all the beautiful moments we’ve shared.<br><br>
-    We’ve been through ups and downs, but I’m so grateful to have faced it all by your side. One day, we’ll grow old together and look back—just like we’re looking back now—and even though time may change many things, one thing will always remain the same:<br><br>
-    <strong>My love for you.</strong><br><br>
-    Thank you for always being my partner, my heart, and my home.<br><br>
-    With all my love,<br>
-    <strong>Gaspar Dantas</strong>
-  </p>
-</section>
+  <section class="love-letter">
+    <h2>A Letter from My Heart</h2>
+    <p>
+      <strong>Sophia,</strong><br><br>
+      You are the most precious treasure in my life. Thank you for always being there—for me and for our girls.  
+      We love you deeply, and I hope that as you look through these photos, they bring back the joy of all the beautiful moments we’ve shared.<br><br>
+      We’ve been through ups and downs, but I’m so grateful to have faced it all by your side. One day, we’ll grow old together and look back—just like we’re looking back now—and even though time may change many things, one thing will always remain the same:<br><br>
+      <strong>My love for you.</strong><br><br>
+      Thank you for always being my partner, my heart, and my home.
+    </p>
+    <p style="font-family: 'Dancing Script', cursive; font-size: 1.6em; margin-top: 1em; text-align: right;">
+      Gaspar Dantas
+    </p>
+  </section>
 
-<section class="gallery">
-  <h2 style="text-align:center;">Our Moments Together</h2>
-  <div class="gallery-grid">
-    <img src="IMG_0686.jpeg" alt="Beautiful memory 1" />
-    <img src="IMG_1067.jpeg" alt="Beautiful memory 2" />
-    <img src="IMG_5031.jpeg" alt="Beautiful memory 3" />
-    <img src="IMG_0974.jpeg" alt="Beautiful memory 4" />
-    <img src="IMG_2648.jpeg" alt="Beautiful memory 5" />
-  </div>
-</section>
+  <section class="gallery">
+    <h2 style="text-align:center;">Our Moments Together</h2>
+    <div class="gallery-grid">
+      <img src="IMG_0686.jpeg" alt="Beautiful memory 1" />
+      <img src="IMG_1067.jpeg" alt="Beautiful memory 2" />
+      <img src="IMG_5031.jpeg" alt="Beautiful memory 3" />
+      <img src="IMG_0974.jpeg" alt="Beautiful memory 4" />
+      <img src="IMG_2648.jpeg" alt="Beautiful memory 5" />
+    </div>
+  </section>
 
+  <audio controls autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <footer>
     Made with love for Sophia Dantas
