@@ -16,6 +16,7 @@
       background-color: #ffb6c1;
       padding: 2em;
       text-align: center;
+      position: relative;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header h1 {
@@ -26,6 +27,23 @@
       font-size: 1.2em;
       margin-top: 0.5em;
       font-style: italic;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: flex;
+      gap: 10px;
+    }
+    .flag {
+      width: 32px;
+      height: 22px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+    .flag.active {
+      border-color: #333;
     }
     section.love-letter {
       padding: 2em;
@@ -75,14 +93,19 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>To Sophia Dantas</h1>
-    <p>With all my love, today and always.</p>
+    <div class="language-switcher">
+      <img src="https://flagcdn.com/us.svg" alt="English" class="flag active" id="en-flag">
+      <img src="https://flagcdn.com/br.svg" alt="Português" class="flag" id="pt-flag">
+    </div>
+    <h1 id="title">To Sophia Dantas</h1>
+    <p id="subtitle">With all my love, today and always.</p>
   </header>
 
   <section class="love-letter">
-    <h2>A Letter from My Heart</h2>
-    <p class="signature">
+    <h2 id="letter-title">A Letter from My Heart</h2>
+    <p class="signature" id="letter-body">
       <strong>Sophia,</strong><br><br>
       You are the most precious treasure in my life. Thank you for always being there—for me and for our girls.  
       We love you deeply, and I hope that as you look through these photos, they bring back the joy of all the beautiful moments we’ve shared.<br><br>
@@ -90,11 +113,11 @@
       <strong>My love for you.</strong><br><br>
       Thank you for always being my partner, my heart, and my home.
     </p>
-    <p class="signature">Gaspar Dantas</p>
+    <p class="signature" id="signature">Gaspar Dantas</p>
   </section>
 
   <section class="gallery">
-    <h2 style="text-align:center;">Our Moments Together</h2>
+    <h2 style="text-align:center;" id="gallery-title">Our Moments Together</h2>
     <div class="gallery-grid">
       <img src="IMG_0686.jpeg" alt="Beautiful memory 1" />
       <img src="IMG_1067.jpeg" alt="Beautiful memory 2" />
@@ -104,8 +127,77 @@
     </div>
   </section>
 
-  <footer>
+  <footer id="footer-text">
     Made with love for Sophia Dantas
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "To Sophia Dantas",
+        subtitle: "With all my love, today and always.",
+        letterTitle: "A Letter from My Heart",
+        letterBody: `
+          <strong>Sophia,</strong><br><br>
+          You are the most precious treasure in my life. Thank you for always being there—for me and for our girls.  
+          We love you deeply, and I hope that as you look through these photos, they bring back the joy of all the beautiful moments we’ve shared.<br><br>
+          We’ve been through ups and downs, but I’m so grateful to have faced it all by your side. One day, we’ll grow old together and look back—just like we’re looking back now—and even though time may change many things, one thing will always remain the same:<br><br>
+          <strong>My love for you.</strong><br><br>
+          Thank you for always being my partner, my heart, and my home.
+        `,
+        signature: "Gaspar Dantas",
+        galleryTitle: "Our Moments Together",
+        footer: "Made with love for Sophia Dantas"
+      },
+      pt: {
+        title: "Para Sophia Dantas",
+        subtitle: "Com todo o meu amor, hoje e sempre.",
+        letterTitle: "Uma Carta do Meu Coração",
+        letterBody: `
+          <strong>Sophia,</strong><br><br>
+          Você é o tesouro mais precioso da minha vida. Obrigado por sempre estar ao meu lado — por mim e pelas nossas meninas.  
+          Nós te amamos profundamente, e espero que ao ver essas fotos, você reviva a alegria de todos os momentos lindos que compartilhamos.<br><br>
+          Passamos por altos e baixos, mas sou muito grato por ter enfrentado tudo ao seu lado. Um dia, vamos envelhecer juntos e olhar para trás — assim como estamos fazendo agora — e mesmo que o tempo mude muitas coisas, uma coisa sempre será a mesma:<br><br>
+          <strong>Meu amor por você.</strong><br><br>
+          Obrigado por ser sempre minha parceira, meu coração e meu lar.
+        `,
+        signature: "Gaspar Dantas",
+        galleryTitle: "Nossos Momentos Juntos",
+        footer: "Feito com amor para Sophia Dantas"
+      }
+    };
+
+    const elements = {
+      title: document.getElementById('title'),
+      subtitle: document.getElementById('subtitle'),
+      letterTitle: document.getElementById('letter-title'),
+      letterBody: document.getElementById('letter-body'),
+      signature: document.getElementById('signature'),
+      galleryTitle: document.getElementById('gallery-title'),
+      footer: document.getElementById('footer-text')
+    };
+
+    document.getElementById('en-flag').addEventListener('click', () => {
+      switchLanguage('en');
+    });
+
+    document.getElementById('pt-flag').addEventListener('click', () => {
+      switchLanguage('pt');
+    });
+
+    function switchLanguage(lang) {
+      const content = translations[lang];
+      elements.title.textContent = content.title;
+      elements.subtitle.textContent = content.subtitle;
+      elements.letterTitle.textContent = content.letterTitle;
+      elements.letterBody.innerHTML = content.letterBody;
+      elements.signature.textContent = content.signature;
+      elements.galleryTitle.textContent = content.galleryTitle;
+      elements.footer.textContent = content.footer;
+
+      document.getElementById('en-flag').classList.toggle('active', lang === 'en');
+      document.getElementById('pt-flag').classList.toggle('active', lang === 'pt');
+    }
+  </script>
 </body>
 </html>
